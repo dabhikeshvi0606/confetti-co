@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Platinum Package Booking</title>
+  <style>
+    body {
+      background: #e6e0f8; /* soft pastel lavender */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .platinum-form-container {
+      background: white;
+      max-width: 520px;
+      margin: 45px auto;
+      padding: 36px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(115, 100, 190, 0.25);
+      color: #4b4375;
+    }
+    .platinum-form-container h2 {
+      text-align: center;
+      margin-bottom: 12px;
+      color: #7f73d6; /* lavender accent */
+    }
+    .package-label {
+      display: block;
+      background: #7f73d6;
+      color: #fff;
+      border-radius: 6px;
+      text-align: center;
+      margin-bottom: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 6px 0;
+      font-size: 18px;
+    }
+    label {
+      font-weight: 600;
+      margin-top: 10px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #c3bbe8;
+      background: #f7f5fd;
+      color: #423d66;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #7f73d6;
+      outline: none;
+    }
+    textarea {
+      min-height: 60px;
+      resize: vertical;
+    }
+    .checkbox-group {
+      margin-bottom: 15px;
+    }
+    .checkbox-group label {
+      font-weight: normal;
+      margin-right: 17px;
+      display: inline-block;
+    }
+    button[type="submit"] {
+      width: 100%;
+      background: #7f73d6;
+      color: white;
+      padding: 14px 0;
+      font-size: 17px;
+      font-weight: bold;
+      border: none;
+      border-radius: 7px;
+      letter-spacing: 1px;
+      margin-top: 12px;
+      cursor: pointer;
+      transition: background 0.22s;
+    }
+    button[type="submit"]:hover {
+      background: #5c55a1;
+    }
+  </style>
+</head>
+<body>
+  <div class="platinum-form-container">
+    <h2>Book Platinum Package</h2>
+    <span class="package-label">Platinum Package</span>
+
+    <form id="platinumForm">
+      <label for="clientName">Full Name</label>
+      <input type="text" id="clientName" name="clientName" required>
+
+      <label for="clientEmail">Email</label>
+      <input type="email" id="clientEmail" name="clientEmail" required>
+
+      <label for="clientPhone">Mobile Number</label>
+      <input type="tel" id="clientPhone" name="clientPhone" pattern="[0-9]{10}" required>
+
+      <label for="eventType">Event Type</label>
+      <select id="eventType" name="eventType" required>
+        <option value="">-- Select Event --</option>
+        <option value="wedding">Wedding</option>
+        <option value="bday">Birthday Party</option>
+        <option value="cultural">Cultural Events</option>
+        <option value="corporate">Corporate Events</option>
+        <option value="concert">Concerts</option>
+        <option value="social">Social Gatherings</option>
+        <option value="product">Product Launches</option>
+        <option value="others">Others</option>
+      </select>
+
+      <label for="eventDate">Preferred Event Date</label>
+      <input type="date" id="eventDate" name="eventDate" required>
+
+      <label for="venue">Venue/Location</label>
+      <input type="text" id="venue" name="venue" required>
+
+      <label for="guests">Expected No. of Guests</label>
+      <input type="number" id="guests" name="guests" min="1" required>
+
+      <label for="vipGuests">Number of VIP Guests</label>
+      <input type="number" id="vipGuests" name="vipGuests" min="0" placeholder="Enter VIP guests count">
+
+      <label for="catering">Catering Preference</label>
+      <select id="catering" name="catering">
+        <option value="">-- Select catering option --</option>
+        <option value="veg">Vegetarian</option>
+        <option value="nonveg">Non-Vegetarian</option>
+        <option value="mixed">Mixed</option>
+        <option value="none">No Catering</option>
+      </select>
+
+      <label for="decoration">Decoration Theme</label>
+      <input type="text" id="decoration" name="decoration" placeholder="e.g., Classic, Modern, Rustic">
+
+      <label for="entertainment">Entertainment Type</label>
+      <select id="entertainment" name="entertainment">
+        <option value="">-- Select entertainment --</option>
+        <option value="live-band">Live Band</option>
+        <option value="dj">DJ</option>
+        <option value="dance-performance">Dance Performance</option>
+        <option value="none">None</option>
+      </select>
+
+      <label for="transportNeeds">Guest Transportation Needs</label>
+      <textarea id="transportNeeds" name="transportNeeds" placeholder="Bus, shuttle, special vehicles required?"></textarea>
+
+      <label>Additional Services</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="services" value="photography"> Photography</label>
+        <label><input type="checkbox" name="services" value="videography"> Videography</label>
+        <label><input type="checkbox" name="services" value="transport"> Transport</label>
+        <label><input type="checkbox" name="services" value="security"> Security</label>
+      </div>
+
+      <label for="paymentMethod">Preferred Payment Method</label>
+      <select id="paymentMethod" name="paymentMethod">
+        <option value="">-- Select payment method --</option>
+        <option value="credit-card">Credit Card</option>
+        <option value="debit-card">Debit Card</option>
+        <option value="upi">UPI</option>
+        <option value="net-banking">Net Banking</option>
+        <option value="cash">Cash</option>
+      </select>
+
+      <label for="requirements">Additional Notes</label>
+      <textarea id="requirements" name="requirements" placeholder="Any other special requests or notes..."></textarea>
+
+      <button type="submit">Book Platinum Package</button>
+    </form>
+  </div>
+
+</body>
+</html>

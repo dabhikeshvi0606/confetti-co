@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Golden Package Booking</title>
+  <style>
+    body {
+      background: #f5ebe0; /* soft nude color */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .golden-form-container {
+      background: white;
+      max-width: 500px;
+      margin: 45px auto;
+      padding: 32px 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(192, 157, 122, 0.27);
+      color: #57423d;
+    }
+    .golden-form-container h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #c49e72; /* golden-brown accent */
+    }
+    .package-label {
+      display: block;
+      background: #c49e72;
+      color: #fff;
+      border-radius: 6px;
+      text-align: center;
+      margin-bottom: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 5px 0;
+      font-size: 17px;
+    }
+    label {
+      font-weight: 600;
+      margin-top: 10px;
+      display: block;
+      margin-bottom: 3px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 9px;
+      margin-bottom: 13px;
+      border-radius: 5px;
+      border: 1px solid #d9c8b8;
+      background: #fef8f3;
+      color: #544936;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 56px;
+      resize: vertical;
+    }
+    .checkbox-group {
+      margin-bottom: 13px;
+    }
+    .checkbox-group label {
+      font-weight: normal;
+      margin-right: 15px;
+      display: inline-block;
+    }
+    button[type="submit"] {
+      width: 100%;
+      background: #c49e72;
+      color: white;
+      padding: 12px 0;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      letter-spacing: 1px;
+      margin-top: 8px;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    button[type="submit"]:hover {
+      background: #9b7f50;
+    }
+  </style>
+</head>
+<body>
+  <div class="golden-form-container">
+    <h2>Book Golden Package</h2>
+    <span class="package-label">Golden Package</span>
+    <form>
+      <label for="clientName">Full Name</label>
+      <input type="text" id="clientName" name="clientName" required>
+
+      <label for="clientEmail">Email</label>
+      <input type="email" id="clientEmail" name="clientEmail" required>
+
+      <label for="clientPhone">Mobile Number</label>
+      <input type="tel" id="clientPhone" name="clientPhone" pattern="[0-9]{10}" required>
+
+      <label for="eventType">Event Type</label>
+      <select id="eventType" name="eventType" required>
+        <option value="">-- Select Event --</option>
+        <option value="wedding">Wedding</option>
+        <option value="bday">Birthday Party</option>
+        <option value="cultural">Cultural Events</option>
+        <option value="corporate">Corporate Events</option>
+        <option value="concert">Concerts</option>
+        <option value="social">Social Gatherings</option>
+        <option value="product">Product Launches</option>
+        <option value="others">Others</option>
+      </select>
+
+      <label for="others">Others</label>
+      <input type="text" id="others" name="others">
+
+      <label for="eventDate">Preferred Event Date</label>
+      <input type="date" id="eventDate" name="eventDate" required>
+
+      <label for="venue">Venue/Location</label>
+      <input type="text" id="venue" name="venue" required>
+
+      <label for="guests">Expected No. of Guests</label>
+      <input type="number" id="guests" name="guests" min="1" required>
+
+      <label for="catering">Catering Preference</label>
+      <select id="catering" name="catering">
+        <option value="">-- Select catering option --</option>
+        <option value="veg">Vegetarian</option>
+        <option value="nonveg">Non-Vegetarian</option>
+        <option value="mixed">Mixed</option>
+        <option value="none">No Catering</option>
+      </select>
+
+      <label for="decoration">Decoration Theme</label>
+      <input type="text" id="decoration" name="decoration" placeholder="e.g., Classic, Modern, Rustic">
+
+
+      <label>Additional Services</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="services" value="photography"> Photography</label>
+        <label><input type="checkbox" name="services" value="videography"> Videography</label>
+        <label><input type="checkbox" name="services" value="transport"> Transport</label>
+      </div>
+
+      <label for="requirements">Special Requirements</label>
+      <textarea id="requirements" name="requirements" placeholder="Enter other special requests or services..."></textarea>
+
+      <button type="submit">Book Golden Package</button>
+    </form>
+  </div>
+</body>
+</html>

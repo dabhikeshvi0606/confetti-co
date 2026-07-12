@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <style>
+      body {
+        background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+        min-height: 100vh;
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+      }
+      .gallery-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 32px;
+        padding: 40px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .gallery-container img {
+        width: 340px;
+        height: 240px;
+        object-fit: cover;
+        border: 6px solid #ff3d0036;
+        border-radius: 18px;
+        box-shadow: 0 8px 24px 0 #00000033;
+        cursor: pointer;
+        transition: 
+          filter 0.3s,
+          transform 0.3s,
+          box-shadow 0.3s;
+        background: #fff;
+      }
+      .gallery-container img:hover {
+        filter: brightness(1.1);
+        transform: translateX(-8px) translateY(-8px) scale(1.05);
+        box-shadow: 0 16px 32px 0 #00000055;
+        border-color: #ff3d00cc;
+      }
+      @media (max-width: 800px) {
+        .gallery-container img {
+          width: 90vw;
+          height: 180px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery-container">
+      <img src="bosdk.jpg" alt="">
+      <img src="bosdk1.jpg" alt="">
+      <img src="bosdk2.jpg" alt="">
+      <img src="bsdk3.jpg" alt="">
+      <img src="bsdk5.jpg" alt="">
+      <img src="bsdk6.jpg" alt="">
+      <img src="kcrR.jpg" alt="">
+      <img src="kcrR2.jpg" alt="">
+      <img src="kcrR1.jpg" alt="">
+      <img src="kcr3.jpg" alt="">
+      <img src="dua-lipa-1838653_1920.jpg" alt="">
+      <img src="arlan-santos-AWhLosRPetI-unsplash.jpg" alt="">
+    </div>
+  </body>

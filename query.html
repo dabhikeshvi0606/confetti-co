@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Chat Bot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .chat-container {
+      width: 350px;
+      height: 500px;
+      background: #fff;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      animation: popIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .chat-header {
+      background: linear-gradient(90deg, #4e54c8, #8f94fb);
+      color: white;
+      text-align: center;
+      padding: 18px 0 12px 0;
+      font-size: 1.4em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(78,84,200,0.08);
+    }
+    .chat-box {
+      flex: 1;
+      padding: 16px 12px;
+      overflow-y: auto;
+      background: #f7f8fa;
+    }
+    .message {
+      margin: 10px 0;
+      padding: 12px 16px;
+      border-radius: 16px;
+      max-width: 70%;
+      clear: both;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      
+      transform: translateY(20px);
+      animation: fadeInMsg 0.4s forwards;
+    }
+    @keyframes fadeInMsg {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .user {
+      background: linear-gradient(90deg, #4e54c8, #8f94fb);
+      color: #fff;
+      float: right;
+      border-bottom-right-radius: 4px;
+      border-top-right-radius: 16px;
+      border-top-left-radius: 16px;
+      border-bottom-left-radius: 16px;
+    }
+    .bot {
+      background: #e4e6eb;
+      float: left;
+      color: #333;
+      border-bottom-left-radius: 4px;
+      border-top-right-radius: 16px;
+      border-top-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+    .input-box {
+      display: flex;
+      border-top: 1px solid #e0e0e0;
+      background: #f7f8fa;
+      padding: 10px;
+    }
+    .input-box input {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 1em;
+      transition: border-color 0.2s;
+    }
+    .input-box input:focus {
+      border-color: #4e54c8;
+      box-shadow: 0 0 0 2px #8f94fb33;
+    }
+    .input-box button {
+      padding: 12px 20px;
+      border-radius: 20px;
+      border: none;
+      background: linear-gradient(90deg, #4e54c8, #8f94fb);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1em;
+      margin-left: 8px;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(78,84,200,0.12);
+    }
+    .input-box button:hover {
+      background: linear-gradient(90deg, #8f94fb, #4e54c8);
+      box-shadow: 0 4px 16px rgba(78,84,200,0.18);
+    }
+    .footer{
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+   background-color: rgb(3, 56, 100);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 20px;
+}
+
+.footer a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 56, 100);
+}
+
+.footer a:hover{
+    color: rgb(0, 0, 0);
+    background-color: rgb(176, 167, 156);
+    transition: 0.5s;
+    transform: scale(1.1);
+    border-radius: 12px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.footer a:active{
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 56, 100);
+    text-decoration: none;
+}
+
+.footer h2{
+    font-size: 20px;
+    color: rgb(137, 209, 14);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+     background-color: rgb(3, 56, 100);
+}
+
+.footer-container {
+     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding-right: 50px;
+    margin-right: 150px;
+    margin-left: 150px;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 5px;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 56, 100);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <span>🤖Query Box</span>
+    </div>
+    <div class="chat-box" id="chat-box"></div>
+    <div class="input-box">
+      <input type="text" id="user-input" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById("chat-box");
+
+    function addMessage(text, sender) {
+      const msg = document.createElement("div");
+      msg.classList.add("message", sender);
+      msg.innerText = text;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("user-input");
+      const text = input.value.trim();
+      if (text === "") return;
+
+      addMessage(text, "user");
+      input.value = "";
+
+      setTimeout(() => {
+        botReply(text);
+      }, 600);
+    }
+
+    function botReply(input) {
+      let reply = "I don't understand. 🤔";
+
+      const responses = {
+  "hi": "Hello! How can I help you? 😊",
+  "hello": "Hi there! 👋",
+  "how are you": "I'm just a bot, but I'm doing great! 😃",
+  "bye": "Goodbye! Have a nice day! 👋",
+  "your name": "I'm your friendly ChatBot 🤖",
+
+  // Wedding events
+  "wedding event": "A wedding event includes décor, catering, music, photography, and guest management. 💍❤️",
+  "wedding registration": "Wedding event registration helps us plan your special day smoothly. 📝",
+  "wedding plans": "We offer, Standard, Premium, and Luxury wedding plans – each with unique features. ✨",
+
+  // Corporate events
+  "corporate event": "Corporate events include meetings, product launches, conferences, and award nights. 💼",
+  "corporate registration": "Corporate event registration ensures smooth entry and proper arrangements for all attendees. 📝",
+  "corporate plans": "Our corporate packages cover stage setup, branding, catering, and VIP services. 📊",
+
+  // Cultural events
+  "cultural event": "Cultural events celebrate traditions with décor, performances, food, and community gatherings. 🎭",
+  "cultural registration": "Cultural event registration allows participants to join activities and programs easily. 📝",
+  "cultural plans": "We provide theme-based décor, stage management, prize distribution, and hospitality. 🌸",
+
+  // Concert events
+  "concert event": "Concerts include live music, lighting, stage design, and artist coordination. 🎶",
+  "concert registration": "Concert registration helps manage entry passes and crowd control. 🎟️",
+  "concert plans": "Concert packages cover stage setup, sound, security, ticketing, and celebrity artists. 🔊",
+
+  // Fundraising events
+  "fundraising event": "Fundraising events support causes through galas, charity shows, and donation drives. 🌍💙",
+  "fundraising registration": "Fundraising event registration ensures proper donor participation and tracking. 📝",
+  "fundraising plans": "We offer Silver, gold, and platinum fundraising packages with auctions, catering, and PR. 🤝",
+
+  // General FAQs
+  "how to register": "You can register by filling out our online event registration form. 📝",
+  "contact details": "You can contact us at: info@eventorganizer.com 📧",
+  "location": "We organize events across multiple cities – tell us your location, and we’ll assist you! 📍",
+  "price": "Our packages vary based on Standard, Premium, and Luxury plans. 💰"
+};
+      for (let key in responses) {
+        if (input.toLowerCase().includes(key)) {
+          reply = responses[key];
+          break;
+        }
+      }
+
+      addMessage(reply, "bot");
+    }
+  </script>
+   <div class="footer">
+
+              <div class="footer-container">
+                 <h2>Useful links:</h2> 
+               <h2 style="margin-right: 20px;">Events:</h2>
+               <h2 >Contact us:</h2>
+               <h2>Follow us on:</h2>
+            </div>
+
+            <div class="footer-container" style=" margin-top: 0%;">
+            <a href="pr01.html">About Us</a>
+              <a href="marriagetest.html">Weddings</a>
+              <a href="#contact-form">Contact Form</a>
+               <a href="https://www.facebook.com/">Facebook</a>
+           </div>
+
+              <div class="footer-container" style=" margin-top: 0%;">
+                 <a href="culturalevents.html">Cultural</a>
+                  <a href="corporateevents.html">Corporate Events</a>
+                 <a href="https://maps.app.goo.gl/MnUgxbZDuqchbFFT7?g_st=aw" style="margin-right: 45px;" >Our Location</a>
+                  <a href="https://twitter.com/">Twitter</a>
+                </div>
+
+               <div class="footer-container" style=" margin-top: 0%;margin-bottom: 20px;">
+                <a href="fundrasingevents.html">Fundrasing</a>
+               <a href="concerts.html" style="margin-right: 45px;">Social Gatherings</a>
+               <a href="query.html" style="margin-right: 45px;">FAQ</a>
+                <a href="https://www.instagram.com/">Instagram</a>
+               </div>
+
+          &copy;  confetti & co. All rights reserved.
+       
+
+           </div>
+</body>
+</html>
+

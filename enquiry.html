@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry Form</title>
+
+    
+    <link rel="stylesheet" href="enquiry_style.css">
+
+    <style>
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h2>Enquire Us</h2>
+
+    <div id="successMessage" class="success-message">
+        ✅ Your enquiry has been submitted successfully!
+    </div>
+
+    <form id="enquiryForm">
+
+        <label for="Name">Name</label>
+        <input
+            type="text"
+            id="Name"
+            name="Name"
+            placeholder="Enter your name"
+            required
+        >
+
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+        >
+
+        <label for="phone">Mobile</label>
+        <input
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="Enter your mobile number"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            title="Enter a valid 10-digit mobile number"
+            required
+        >
+
+        <label for="event">Event</label>
+        <select id="event" name="event" required>
+            <option value="">-- Select an event --</option>
+            <option value="wedding">Wedding</option>
+            <option value="birthday">Birthday Party</option>
+            <option value="cultural">Cultural Events</option>
+            <option value="corporate">Corporate Events</option>
+            <option value="concert">Concerts</option>
+            <option value="social">Social Gatherings</option>
+            <option value="product">Product Launches</option>
+            <option value="others">Others</option>
+        </select>
+
+        <label for="date">Preferred Event Date</label>
+        <input
+            type="date"
+            id="date"
+            name="date"
+            required
+        >
+
+        <label for="message">Describe Your Requirements</label>
+        <textarea
+            id="message"
+            name="message"
+            placeholder="Enter your requirements..."
+        ></textarea>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</div>
+
+<script>
+
+document.getElementById("enquiryForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    document.getElementById("successMessage").style.display = "block";
+
+    this.reset();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+</script>
+
+</body>
+</html>

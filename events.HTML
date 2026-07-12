@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Categories</title>
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(120deg,#699ae3,#c3cfe2);
+      color:#333;
+    }
+    header{
+      text-align:center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      padding:30px;
+      background:#2c3e50;
+      color:white;
+    }
+    h1{margin:0;font-size:32px}
+    .container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,2fr));
+      gap:20px;
+      padding:40px;
+      max-width:1200px;
+      margin:auto;
+    }
+    a.card{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      background:white;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(43, 22, 163, 0.15);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      cursor:pointer;
+    }
+    a.card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 8px 18px rgba(0,0,0,0.25);
+    }
+    .card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+    }
+    .card-content{
+      padding:20px;
+      text-align:center;
+    }
+    .card-content h2{
+      margin:0 0 10px;
+      font-size:20px;
+      color:#2c3e50;
+    }
+    .card-content p{
+      font-size:14px;
+      color:#555;
+    }
+
+    .footer{
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+   background-color: rgb(3, 56, 100);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 20px;
+}
+
+.footer a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 56, 100);
+}
+
+.footer a:hover{
+    color: rgb(0, 0, 0);
+    background-color: rgb(176, 167, 156);
+    transition: 0.5s;
+    transform: scale(1.1);
+    border-radius: 12px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.footer a:active{
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 56, 100);
+    text-decoration: none;
+}
+
+.footer h2{
+    font-size: 20px;
+    color: rgb(137, 209, 14);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+     background-color: rgb(3, 56, 100);
+}
+
+.footer-container {
+     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding-right: 50px;
+    margin-right: 150px;
+    margin-left: 150px;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 5px;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 56, 100);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+    
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Explore Our Events</h1>
+    <p>Choose from a variety of memorable experiences</p>
+  </header>
+
+  <div class="container">
+    <a href="marriagetest.html" class="card">
+      <img src="mm.jpg" alt="Wedding Events">
+      <div class="card-content">
+        <h2>Wedding Events</h2>
+        <p>Celebrate love and create timeless memories with our beautifully managed weddings.</p>
+      </div>
+    </a>
+
+    <a href="culturalevents.html" class="card">
+      <img src="cult.jpg" alt="Cultural Events">
+      <div class="card-content">
+        <h2>Cultural Events</h2>
+        <p>Experience rich traditions and vibrant cultural showcases curated for all.</p>
+      </div>
+    </a>
+
+    <a href="fundrasingevents.html" class="card">
+      <img src="ffu.jpg" alt="Fundraising Events">
+      <div class="card-content">
+        <h2>Fundraising Events</h2>
+        <p>Support causes that matter through impactful and engaging fundraising activities.</p>
+      </div>
+    </a>
+
+    <a href="concerts.html" class="card">
+      <img src="cc.jpg" alt="Concerts">
+      <div class="card-content">
+        <h2>Concerts</h2>
+        <p>Enjoy live music, energetic performances, and unforgettable concert nights.</p>
+      </div>
+    </a>
+    </div>
+     <div class="footer">
+
+              <div class="footer-container">
+                 <h2>Useful links:</h2> 
+               <h2 style="margin-right: 20px;">Events:</h2>
+               <h2 >Contact us:</h2>
+               <h2>Follow us on:</h2>
+            </div>
+
+            <div class="footer-container" style=" margin-top: 0%;">
+            <a href="pr01.html">About Us</a>
+              <a href="marriagetest.html">Weddings</a>
+              <a href="contact.html">Contact Form</a>
+               <a href="https://m.facebook.com/perfecteventmanage/">Facebook</a>
+           </div>
+
+              <div class="footer-container" style=" margin-top: 0%;">
+                 <a href="culturalevents.html">Cultural</a>
+                  <a href="corporateevents.html">Corporate Events</a>
+                 <a href="https://maps.app.goo.gl/MnUgxbZDuqchbFFT7?g_st=aw" style="margin-right: 45px;" >Our Location</a>
+                  <a href=" https://x.com/MOrganizers?t=lLpxy380XU83Ds_0XyPuqg&s=08 ">Twitter</a>
+                </div>
+
+               <div class="footer-container" style=" margin-top: 0%;margin-bottom: 20px;">
+                <a href="fundrasingevents.html">Fundrasing</a>
+               <a href="concerts.html" style="margin-right: 45px;">Social Gatherings</a>
+               <a href="query.html" style="margin-right: 45px;">FAQ</a>
+                <a href="https://www.instagram.com/shivray_decorators?igsh=MWlxcmc0cm1yc25xMw==">Instagram</a>
+               </div>
+
+          &copy;  confetti & co. All rights reserved.
+       
+
+           </div>
+   
+      
+    </body>
+    </html>
+
+
+   

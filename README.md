@@ -9,7 +9,7 @@ The primary goal of this project was to strengthen my understanding of front-end
 ## 🌐 Live Demo
 
 🔗 **Live Website:**  
-https://dabhikeshvi0606.github.io/confetti-co-web/
+https://https://dabhikeshvi0606.github.io/confetti-co/
 
 ---
 
